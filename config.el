@@ -69,3 +69,7 @@
   (add-to-list 'forge-alist '("git.garena.com" "git.garena.com/api/v4" "git.garena.com" forge-gitlab-repository)))
 
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this)
+
+(load! "google-c-style")
+(add-hook! c++-mode 'google-set-c-style)
+(add-hook! c++-mode 'google-make-newline-indent)
