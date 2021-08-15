@@ -73,3 +73,14 @@
 (load! "google-c-style")
 (add-hook! c++-mode 'google-set-c-style)
 (add-hook! c++-mode 'google-make-newline-indent)
+
+(use-package! bazel
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("BUILD\\(\\.bazel\\)?\\'" . bazel-build-mode))
+  (add-to-list 'auto-mode-alist '("\\.BUILD\\'" . bazel-build-mode))
+  (add-to-list 'auto-mode-alist '("\\.bzl\\'" . bazel-starlark-mode))
+  (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . bazel-workspace-mode))
+  :config
+  (setq bazel-buildifier-before-save t)
+  (appendq! +format-on-save-enabled-modes '(bazel-mode)))
