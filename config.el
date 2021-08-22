@@ -53,8 +53,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-theme 'doom-spacegrey)
-(setq doom-themes-enable-bold 'nil)
+(setq doom-theme 'doom-one)
+;;(setq doom-themes-enable-bold 'nil)
+
+
+(remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 (add-hook! python-mode display-fill-column-indicator-mode)
 (add-hook! c++-mode display-fill-column-indicator-mode)
