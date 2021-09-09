@@ -50,3 +50,4 @@
 ;(unpin! t)
 (package! yapfify)
 (package! bazel)
+(package! protobuf-mode)
