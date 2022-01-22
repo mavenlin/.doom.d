@@ -59,8 +59,8 @@
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
-(add-hook! python-mode display-fill-column-indicator-mode)
-(add-hook! c++-mode display-fill-column-indicator-mode)
+(add-hook! python-mode 'display-fill-column-indicator-mode)
+(add-hook! c++-mode 'display-fill-column-indicator-mode)
 (add-hook! c++-mode (lambda () (setq flycheck-clang-language-standard "c++17"
                                      flycheck-gcc-language-standard "c++17")))
 
