@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;; (setq doom-theme 'doom-vibrant)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -53,13 +53,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-Iosvkem)
 ;;(setq doom-themes-enable-bold 'nil)
 
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 (add-hook! python-mode 'display-fill-column-indicator-mode)
+(add-hook! python-mode 'python-indent-guess-indent-offset)
 (add-hook! c++-mode 'display-fill-column-indicator-mode)
 (add-hook! c++-mode (lambda () (setq flycheck-clang-language-standard "c++17"
                                      flycheck-gcc-language-standard "c++17")))
