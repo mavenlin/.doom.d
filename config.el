@@ -95,6 +95,13 @@
   (setq bazel-buildifier-before-save t)
   (appendq! +format-on-save-enabled-modes '(bazel-mode)))
 
+(setq mac-command-modifier      'super
+      ns-command-modifier       'super
+      mac-option-modifier       'meta
+      ns-option-modifier        'meta
+      mac-right-option-modifier 'meta
+      ns-right-option-modifier  'meta)
+
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
