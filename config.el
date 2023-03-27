@@ -110,3 +110,16 @@
          :map copilot-completion-map
          ("<tab>" . 'copilot-accept-completion)
          ("TAB" . 'copilot-accept-completion)))
+
+;; org-mode
+(after! org
+        (setq org-roam-directory "~/org/roam/")
+        (setq org-roam-index-file "~/org/roam/index.org"))
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+(use-package! org-protocol)
+(setenv "PATH" "$PATH:/Library/TeX/texbin/" t)
+
+(setq gptel-api-key (getenv "OPENAI_API_KEY"))
