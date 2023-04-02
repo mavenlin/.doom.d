@@ -123,11 +123,3 @@
 (setenv "PATH" "$PATH:/Library/TeX/texbin/" t)
 
 (setq gptel-api-key (getenv "OPENAI_API_KEY"))
-
-;; k8s
-(use-package kubernetes
-  :ensure t
-  :commands (kubernetes-overview)
-  :config
-  (setq kubernetes-poll-frequency 3600
-        kubernetes-redraw-frequency 3600))

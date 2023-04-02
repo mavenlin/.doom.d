@@ -51,7 +51,6 @@
 (package! yapfify)
 (package! bazel)
 (package! protobuf-mode)
-(package! kubernetes)
 (package! gptel)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
