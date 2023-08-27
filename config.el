@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Lin Min"
-      user-mail-address "linmin@sea.com")
+      user-mail-address "mavenlin@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -123,3 +123,7 @@
 (setenv "PATH" "$PATH:/Library/TeX/texbin/" t)
 
 (setq gptel-api-key (getenv "OPENAI_API_KEY"))
+
+(use-package! atomic-chrome)
+(setq atomic-chrome-server-ghost-text-port 4001)
+(atomic-chrome-start-server)

@@ -52,5 +52,6 @@
 (package! bazel)
 (package! protobuf-mode)
 (package! gptel)
+(package! atomic-chrome)
 (package! copilot
   :recipe (:host github :repo "zerolfx/copilot.el" :files ("*.el" "dist")))
