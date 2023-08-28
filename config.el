@@ -61,6 +61,7 @@
 
 (add-hook! python-mode 'display-fill-column-indicator-mode)
 (add-hook! python-mode 'python-indent-guess-indent-offset)
+(add-hook! python-mode '(lambda () (setq python-indent-offset 2)))
 (add-hook! c++-mode 'display-fill-column-indicator-mode)
 (add-hook! c++-mode (lambda () (setq flycheck-clang-language-standard "c++17"
                                      flycheck-gcc-language-standard "c++17")))
