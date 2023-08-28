@@ -125,6 +125,10 @@
 
 (setq gptel-api-key (getenv "OPENAI_API_KEY"))
 
-(use-package! atomic-chrome)
-(setq atomic-chrome-server-ghost-text-port 4001)
-(atomic-chrome-start-server)
+(use-package! atomic-chrome
+  :config
+  (atomic-chrome-start-server)
+  (setq atomic-chrome-buffer-open-style 'full)
+  (setq atomic-chrome-url-major-mode-alist
+        '(("github\\.com" . gfm-mode)
+          ("overleaf\\.com" . latex-mode))))
