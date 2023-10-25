@@ -114,8 +114,8 @@
 
 ;; org-mode
 (after! org
-        (setq org-roam-directory "~/org/roam/")
-        (setq org-roam-index-file "~/org/roam/index.org"))
+  (setq org-roam-directory "~/org/roam/")
+  (setq org-roam-index-file "~/org/roam/index.org"))
 (global-set-key (kbd "C-c l") #'org-store-link)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-c c") #'org-capture)
@@ -132,3 +132,12 @@
   (setq atomic-chrome-url-major-mode-alist
         '(("github\\.com" . gfm-mode)
           ("overleaf\\.com" . latex-mode))))
+
+;; vterm
+(after! vterm
+  (set-popup-rule! "^\\*vterm" :size 0.3 :vslot -4 :select t :quit nil :ttl 0 :side 'right))
+
+(after! flycheck
+  :config
+  (setq-default flycheck-disabled-checkers '(python-pylint))
+  (setq flycheck-global-modes '(not latex-mode)))
