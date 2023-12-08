@@ -141,3 +141,7 @@
   :config
   (setq-default flycheck-disabled-checkers '(python-pylint))
   (setq flycheck-global-modes '(not latex-mode)))
+
+(after! ein
+  :config
+  (setq-default ein:output-area-inlined-images t))
