@@ -56,15 +56,14 @@
 (setq doom-theme 'doom-Iosvkem)
 ;;(setq doom-themes-enable-bold 'nil)
 
-
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
 
 (add-hook! python-mode 'display-fill-column-indicator-mode)
 (add-hook! python-mode 'python-indent-guess-indent-offset)
-(add-hook! python-mode (lambda () (setq python-indent-offset 2)))
+(add-hook! python-mode (setq python-indent-offset 2))
 (add-hook! c++-mode 'display-fill-column-indicator-mode)
-(add-hook! c++-mode (lambda () (setq flycheck-clang-language-standard "c++17"
-                                     flycheck-gcc-language-standard "c++17")))
+(add-hook! c++-mode (setq flycheck-clang-language-standard "c++17"
+                          flycheck-gcc-language-standard "c++17"))
 
 (use-package! yapfify
   :hook
