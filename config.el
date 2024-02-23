@@ -78,6 +78,8 @@
 (load! "google-c-style")
 (add-hook! c++-mode 'google-set-c-style)
 (add-hook! c++-mode 'google-make-newline-indent)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
 
 (use-package! protobuf-mode
   :defer t
@@ -87,8 +89,8 @@
 (use-package! bazel
   :defer t
   :init
-  (add-to-list 'auto-mode-alist '("BUILD\\(\\.bazel\\)?\\'" . bazel-build-mode))
-  (add-to-list 'auto-mode-alist '("\\.BUILD\\'" . bazel-build-mode))
+  (add-to-list 'auto-mode-alist '("BUILD\\(\\.bazel\\)?\\'" . bazel-mode))
+  (add-to-list 'auto-mode-alist '("\\.BUILD\\'" . bazel-mode))
   (add-to-list 'auto-mode-alist '("\\.bzl\\'" . bazel-starlark-mode))
   (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . bazel-workspace-mode))
   :config
