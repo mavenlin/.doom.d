@@ -135,8 +135,8 @@
           ("overleaf\\.com" . latex-mode))))
 
 ;; vterm
-(after! vterm
-  (set-popup-rule! "^\\*vterm" :size 0.3 :vslot -4 :select t :quit nil :ttl 0 :side 'right))
+;; (after! vterm
+;;   (set-popup-rule! "^\\*vterm" :size 0.3 :vslot -4 :select t :quit nil :ttl 0 :side 'right))
 
 (after! flycheck
   :config
@@ -146,3 +146,17 @@
 (after! ein
   :config
   (setq-default ein:output-area-inlined-images t))
+
+(setq pdf-view-use-scaling t)
+;; Use emacs' pdf-tools to open PDF files:
+(setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+      TeX-source-correlate-start-server t)
+
+;; use synctex for click on pdf to jump to that point in tex file, and vice versa:
+(setq TeX-source-correlate-mode t)
+(setq TeX-source-correlate-method 'synctex)
+
+;; Update PDF buffers after successful LaTeX runs
+;; does this actually work tho?
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
