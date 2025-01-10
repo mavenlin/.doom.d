@@ -69,9 +69,6 @@
   :hook
   (python-mode . yapf-mode))
 
-(after! forge
-  (add-to-list 'forge-alist '("git.garena.com" "git.garena.com/api/v4" "git.garena.com" forge-gitlab-repository)))
-
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this)
 (setq! mc/always-run-for-all t)
 
