@@ -158,3 +158,6 @@
 ;; does this actually work tho?
 (add-hook 'TeX-after-compilation-finished-functions
           #'TeX-revert-document-buffer)
+
+(use-package! ruff-format
+  :hook (python-mode . ruff-format-on-save-mode))
