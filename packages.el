@@ -49,6 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (package! yapfify)
+(package! ruff-format)
 (package! bazel)
 (package! protobuf-mode)
 (package! gptel)

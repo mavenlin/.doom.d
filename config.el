@@ -65,9 +65,9 @@
 (add-hook! c++-mode (setq flycheck-clang-language-standard "c++17"
                           flycheck-gcc-language-standard "c++17"))
 
-(use-package! yapfify
+(use-package! ruff-format
   :hook
-  (python-mode . yapf-mode))
+  (python-mode . ruff-format-on-save-mode))
 
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this)
 (setq! mc/always-run-for-all t)
@@ -137,7 +137,8 @@
 
 (after! flycheck
   :config
-  (setq-default flycheck-disabled-checkers '(python-pylint))
+  (setq-default flycheck-disabled-checkers
+                '(python-pylint python-flake8 python-mypy))
   (setq flycheck-global-modes '(not latex-mode)))
 
 (after! ein
