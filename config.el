@@ -35,7 +35,6 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
-
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -53,7 +52,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq doom-theme 'doom-Iosvkem)
+(setq doom-theme 'doom-one)
 ;;(setq doom-themes-enable-bold 'nil)
 
 (remove-hook 'doom-first-buffer-hook #'smartparens-global-mode)
@@ -104,11 +103,11 @@
 ;; accept completion from copilot and fallback to company
 (use-package! copilot
   :hook (prog-mode . copilot-mode)
-  :bind (("C-TAB" . 'copilot-accept-completion-by-word)
-         ("C-<tab>" . 'copilot-accept-completion-by-word)
-         :map copilot-completion-map
-         ("<tab>" . 'copilot-accept-completion)
-         ("TAB" . 'copilot-accept-completion)))
+  :bind (:map copilot-completion-map
+              ("<tab>" . 'copilot-accept-completion)
+              ("TAB" . 'copilot-accept-completion)
+              ("C-TAB" . 'copilot-accept-completion-by-word)
+              ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
 ;; org-mode
 (after! org
@@ -159,5 +158,10 @@
 (add-hook 'TeX-after-compilation-finished-functions
           #'TeX-revert-document-buffer)
 
+;; Use ruff to format the python code
 (use-package! ruff-format
   :hook (python-mode . ruff-format-on-save-mode))
+
+;; Enable chatgpt-shell
+(use-package! chatgpt-shell)
+(setq chatgpt-shell-google-key (getenv "GEMINI_API_KEY"))
