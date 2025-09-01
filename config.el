@@ -63,10 +63,7 @@
 (add-hook! c++-mode 'display-fill-column-indicator-mode)
 (add-hook! c++-mode (setq flycheck-clang-language-standard "c++17"
                           flycheck-gcc-language-standard "c++17"))
-
-(use-package! ruff-format
-  :hook
-  (python-mode . ruff-format-on-save-mode))
+(setq-hook! 'python-mode-hook +format-with-lsp nil)
 
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this)
 (setq! mc/always-run-for-all t)
@@ -162,6 +159,3 @@
 (use-package! ruff-format
   :hook (python-mode . ruff-format-on-save-mode))
 
-;; Enable chatgpt-shell
-(use-package! chatgpt-shell)
-(setq chatgpt-shell-google-key (getenv "GEMINI_API_KEY"))

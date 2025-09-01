@@ -56,4 +56,4 @@
 (package! atomic-chrome)
 (package! chatgpt-shell)
 (package! copilot
-  :recipe (:host github :repo "copilot-emacs/copilot.el" :branch "ci/30.1" :files ("*.el")))
+  :recipe (:host github :repo "copilot-emacs/copilot.el" :branch "main" :files ("*.el")))
