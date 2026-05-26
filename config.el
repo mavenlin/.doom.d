@@ -87,8 +87,7 @@
   (add-to-list 'auto-mode-alist '("\\.bzl\\'" . bazel-starlark-mode))
   (add-to-list 'auto-mode-alist '("WORKSPACE\\'" . bazel-workspace-mode))
   :config
-  (setq bazel-buildifier-before-save t)
-  (appendq! +format-on-save-enabled-modes '(bazel-mode)))
+  (setq bazel-buildifier-before-save t))
 
 (setq mac-command-modifier      'super
       ns-command-modifier       'super
@@ -127,6 +126,11 @@
         '(("github\\.com" . gfm-mode)
           ("overleaf\\.com" . latex-mode))))
 
+(after! code-review
+  (add-hook 'code-review-mode-hook
+            (lambda ()
+              (persp-add-buffer (current-buffer)))))
+
 ;; vterm
 ;; (after! vterm
 ;;   (set-popup-rule! "^\\*vterm" :size 0.3 :vslot -4 :select t :quit nil :ttl 0 :side 'right))
@@ -158,4 +162,3 @@
 ;; Use ruff to format the python code
 (use-package! ruff-format
   :hook (python-mode . ruff-format-on-save-mode))
-
