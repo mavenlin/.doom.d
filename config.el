@@ -33,7 +33,20 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type nil)
+
+;; Avoid pulsing edit highlights and extra redraws over SSH.
+(remove-hook 'prog-mode-hook #'goggles-mode)
+(remove-hook 'text-mode-hook #'goggles-mode)
+(after! goggles
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (bound-and-true-p goggles-mode)
+        (goggles-mode -1)))))
+
+(remove-hook 'doom-first-input-hook #'evil-goggles-mode)
+(after! evil-goggles
+  (evil-goggles-mode -1))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -96,14 +109,13 @@
       mac-right-option-modifier 'meta
       ns-right-option-modifier  'meta)
 
-;; accept completion from copilot and fallback to company
-(use-package! copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
+;; Disable automatic Copilot suggestions to reduce redraws over SSH.
+(remove-hook 'prog-mode-hook #'copilot-mode)
+(after! copilot
+  (dolist (buffer (buffer-list))
+    (with-current-buffer buffer
+      (when (bound-and-true-p copilot-mode)
+        (copilot-mode -1)))))
 
 ;; org-mode
 (after! org
