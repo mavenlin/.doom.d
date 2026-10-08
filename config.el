@@ -48,6 +48,18 @@
 (after! evil-goggles
   (evil-goggles-mode -1))
 
+;; Avoid scanning the shared filesystem for untracked files on each refresh.
+(after! magit
+  (setq magit-status-show-untracked-files nil
+        magit-diff-refine-hunk nil)
+  ;; Tag lookups traverse history and are slow on the shared filesystem.
+  (remove-hook 'magit-status-headers-hook #'magit-insert-tags-header)
+  ;; Avoid rebuilding upstream commit lists after every staged hunk.
+  (remove-hook 'magit-status-sections-hook
+               #'magit-insert-unpushed-to-upstream-or-recent)
+  (remove-hook 'magit-status-sections-hook
+               #'magit-insert-unpulled-from-upstream))
+
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
